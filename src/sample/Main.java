@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 
 
@@ -16,8 +14,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //Creating a Path
-        Path path = new Path();
+       //Creating a Path
+        Path path = new Path(); Sphere sphere= new Sphere();
         //Moving to Starting Point
         MoveTo moveTo = new MoveTo(108,71);
         //Creating Lines
@@ -29,8 +27,33 @@ public class Main extends Application {
         //Adding all the elements to the path
         path.getElements().add(moveTo);
         path.getElements().addAll(line1,line2,line3,line4,line5);
+
+        sphere.setRadius(50.0);
+
+        sphere.setTranslateX(100);
+        sphere.setTranslateY(150);
+
+        sphere.setCullFace(CullFace.FRONT);
+
+        Sphere sphere1 = new Sphere();
+
+        sphere1.setRadius(50.0);
+
+        sphere1.setTranslateY(300);
+        sphere1.setTranslateX(150);
+
+        sphere1.setCullFace(CullFace.BACK);
+
+        Sphere sphere2 = new Sphere();
+        sphere2.setRadius(50.0);
+
+        sphere2.setTranslateX(500);
+        sphere2.setTranslateY(150);
+
+        sphere2.setCullFace(CullFace.NONE);
         //Creating a group element
-        Group root = new Group(path);
+        Group root = new Group(path, sphere,sphere1,sphere2);
+//        Group root1= new Group(sphere)
         //Creating a scene object
         Scene scene = new Scene(root,600,300);
 
@@ -45,6 +68,40 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();*/
+
+       /*Sphere sphere= new Sphere();
+        sphere.setRadius(50.0);
+
+        sphere.setTranslateX(100);
+        sphere.setTranslateY(150);
+
+        sphere.setCullFace(CullFace.FRONT);
+
+        Sphere sphere1 = new Sphere();
+
+        sphere1.setRadius(50.0);
+
+        sphere1.setTranslateY(300);
+        sphere1.setTranslateX(150);
+
+        sphere1.setCullFace(CullFace.BACK);
+
+        Sphere sphere2 = new Sphere();
+         sphere2.setRadius(50.0);
+
+         sphere2.setTranslateX(500);
+         sphere2.setTranslateY(150);
+
+         sphere2.setCullFace(CullFace.NONE);
+
+        Group root1 = new Group(sphere,sphere1,sphere2);
+
+        Scene scene1 = new Scene(root1,600,300);
+
+        primaryStage.setScene(scene1);
+
+        primaryStage.show();
+*/
     }
 
 
