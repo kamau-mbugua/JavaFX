@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.shape.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -16,6 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
        //Creating a Path
         Path path = new Path(); Sphere sphere= new Sphere();
+        Text text = new Text();
         //Moving to Starting Point
         MoveTo moveTo = new MoveTo(108,71);
         //Creating Lines
@@ -51,11 +53,15 @@ public class Main extends Application {
         sphere2.setTranslateY(150);
 
         sphere2.setCullFace(CullFace.NONE);
+
+        text.setText("Hello You");
+        text.setX(300);
+        text.setY(50);
         //Creating a group element
-        Group root = new Group(path, sphere,sphere1,sphere2);
+        Group root = new Group(path, sphere,sphere1,sphere2, text);
 //        Group root1= new Group(sphere)
         //Creating a scene object
-        Scene scene = new Scene(root,600,300);
+        Scene scene = new Scene(root,600,400);
 
         //setting Title to the stange
         primaryStage.setTitle("Drawing an arc through a Path");
